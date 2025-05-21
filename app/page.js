@@ -3,48 +3,53 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaDownload } from 'react-icons/fa';
+import Image from 'next/image';
+import Head from 'next/head';
 
 export default function Home() {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
-const projects = [
-  {
-    id: 1,
-    title: 'GcoeAsync',
-    description: 'GcoeAsync is a comprehensive campus platform developed for GCOEA, combining event management, peer-to-peer marketplace, and virtual club coordination. Built with Spring Boot, MongoDB, and Next.js, it enables students to register for events, buy and sell items, and engage in college clubs digitally. The platform features role-based access, a mobile-responsive UI, and an intuitive dashboard for admins and club coordinators to manage activities efficiently across the college community.',
-    image: '/gcoeasync.png',
-    size: 'large',
-    github: 'https://github.com/shahidmulani/gcoeasync'
-  },
-  {
-    id: 2,
-    title: 'HealthSense AI',
-    description: 'HealthSense AI is an intelligent health monitoring and diagnostic platform that integrates real-time sensor data with smart machine learning models. It features live health input tracking, an AI-powered chatbot for health assistance, coronary heart disease (CHD) and respiratory illness prediction, and AI Vision for symptom analysis and disease detection. Designed for proactive health support, the system offers users instant feedback and intelligent insights based on physical metrics and conversational inputs.',
-    image: '/healthsence-ai.png',
-    size: 'small',
-    github: 'https://github.com/miyamoto3000/Heathsense--AI'
-  },
-  {
-    id: 3,
-    title: 'EcoFund',
-    description: 'EcoFund is a transparent and socially-driven crowdfunding platform built for NGOs to raise funds and run impactful donation campaigns. Developed with a Next.js frontend, it allows NGOs to create verified profiles, launch fundraising projects, showcase goals, and receive donations from individuals and communities. The platform empowers non-profits with visibility, donor trust, and tools to promote causes ranging from education and environment to healthcare and rural development.',
-    image: '/ecofund.jpg',
-    size: 'medium',
-    github: 'https://github.com/miyamoto3000/Ecofund'
-  },
-  {
-    id: 4,
-    title: 'Multilingual Translation App',
-    description: 'This AI-powered multilingual translator is built from scratch to enable real-time translation between multiple languages. Designed with deep learning techniques and custom preprocessing pipelines, it translates between English, Hindi, and other languages without relying on pretrained models. Ideal for diverse communication use cases, the app showcases a robust encoder-decoder architecture and is tailored for both performance and linguistic accuracy.',
-    image: '/t.png',
-    size: 'medium',
-    github: 'https://github.com/SpringBoardMentor0781j/Neural_Machine_Translation_Infosys_Internship_Nov2024/tree/main/infosys'
-  }
-];
-
+  const projects = [
+    {
+      id: 1,
+      title: 'GcoeAsync',
+      description: 'GcoeAsync is a comprehensive campus platform developed for GCOEA, combining event management, peer-to-peer marketplace, and virtual club coordination. Built with Spring Boot, MongoDB, and Next.js, it enables students to register for events, buy and sell items, and engage in college clubs digitally. The platform features role-based access, a mobile-responsive UI, and an intuitive dashboard for admins and club coordinators to manage activities efficiently across the college community.',
+      image: '/gcoeasync.png',
+      size: 'large',
+      github: 'https://github.com/shahidmulani/gcoeasync'
+    },
+    {
+      id: 2,
+      title: 'HealthSense AI',
+      description: 'HealthSense AI is an intelligent health monitoring and diagnostic platform that integrates real-time sensor data with smart machine learning models. It features live health input tracking, an AI-powered chatbot for health assistance, coronary heart disease (CHD) and respiratory illness prediction, and AI Vision for symptom analysis and disease detection. Designed for proactive health support, the system offers users instant feedback and intelligent insights based on physical metrics and conversational inputs.',
+      image: '/healthsene.png',
+      size: 'small',
+      github: 'https://github.com/miyamoto3000/Heathsense--AI'
+    },
+    {
+      id: 3,
+      title: 'EcoFund',
+      description: 'EcoFund is a transparent and socially-driven crowdfunding platform built for NGOs to raise funds and run impactful donation campaigns. Developed with a Next.js frontend, it allows NGOs to create verified profiles, launch fundraising projects, showcase goals, and receive donations from individuals and communities. The platform empowers non-profits with visibility, donor trust, and tools to promote causes ranging from education and environment to healthcare and rural development.',
+      image: '/ecofund.jpg',
+      size: 'medium',
+      github: 'https://github.com/miyamoto3000/Ecofund'
+    },
+    {
+      id: 4,
+      title: 'Multilingual Translation App',
+      description: 'This AI-powered multilingual translator is built from scratch to enable real-time translation between multiple languages. Designed with deep learning techniques and custom preprocessing pipelines, it translates between English, Hindi, and other languages without relying on pretrained models. Ideal for diverse communication use cases, the app showcases a robust encoder-decoder architecture and is tailored for both performance and linguistic accuracy.',
+      image: '/t.png',
+      size: 'medium',
+      github: 'https://github.com/SpringBoardMentor0781j/Neural_Machine_Translation_Infosys_Internship_Nov2024/tree/main/infosys'
+    }
+  ];
 
   const achievements = [
-    { id: 1, title: 'winnar of code hunt', description: '1st position at code hunting at anusandhan tech fest at prmcea college' },
+    {
+      id: 1,
+      title: 'Winner of Code Hunt',
+      description: 'Secured 1st position in code hunting at the Anusandhan tech fest at PRMCEA college.'
+    }
   ];
 
   const experiences = [
@@ -53,8 +58,8 @@ const projects = [
       role: 'Machine Learning Intern',
       company: 'Infosys Springboard',
       duration: '2024',
-      description: 'Developed the Multilingual Translator from scratch, an AI-driven app enabling real-time translation across multiple languages using advanced machine learning techniques.',
-    },
+      description: 'Developed the Multilingual Translator from scratch, an AI-driven app enabling real-time translation across multiple languages using advanced machine learning techniques.'
+    }
   ];
 
   // Custom cursor effect
@@ -70,12 +75,19 @@ const projects = [
     initial: { y: 0 },
     animate: {
       y: [0, -5, 5, 0],
-      transition: { duration: 0.3, repeat: Infinity, repeatDelay: 2 },
-    },
+      transition: { duration: 0.3, repeat: Infinity, repeatDelay: 2 }
+    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 transition-colors duration-500 relative overflow-hidden">
+      <Head>
+        <title>Shahid Shakil Mulani | Portfolio</title>
+        <meta name="description" content="Portfolio of Shahid Shakil Mulani, a passionate Java developer skilled in Spring Boot, Next.js, and AI/ML." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+      </Head>
+
       {/* Custom Cursor */}
       <motion.div
         className="fixed w-6 h-6 rounded-full border-2 border-blue-400 bg-blue-400/20 pointer-events-none z-50"
@@ -118,7 +130,7 @@ const projects = [
           >
             I Build the <span className="text-blue-400 neon-glow">Future</span>
           </motion.h1>
-          <p className="text-xl sm:text-2xl font-montserrat tracking-wide">Hi, I'm Shahid Shakil Mulani. A passionate Java developer skilled in Spring Boot, Next.js, and AI/ML.</p>
+          <p className="text-xl sm:text-2xl font-montserrat tracking-wide">Hi, I&apos;m Shahid Shakil Mulani. A passionate Java developer skilled in Spring Boot, Next.js, and AI/ML.</p>
           <a
             href="#projects"
             className="mt-8 inline-block px-8 py-4 bg-blue-500 text-white rounded-full font-montserrat uppercase tracking-widest text-lg hover:bg-blue-600 transition shadow-lg neon-glow"
@@ -145,14 +157,19 @@ const projects = [
           About Me
         </motion.h2>
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-          <motion.img
-            src="/linkedin_pic.jpg"
-            alt="Shahid Shakil Mulani"
-            className="w-72 h-72 rounded-full object-cover border-2 border-blue-400/50 neon-glow -ml-4"
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-          />
+          >
+            <Image
+              src="/linkedin_pic.jpg"
+              alt="Shahid Shakil Mulani"
+              width={384}
+              height={384}
+              className="w-96 h-96 rounded-full object-cover border-2 border-blue-400/50 neon-glow -ml-4"
+            />
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +177,7 @@ const projects = [
             className="text-center md:text-left"
           >
             <p className="text-lg sm:text-xl font-montserrat tracking-wide">
-              I'm Shahid Shakil Mulani, a passionate Java developer with expertise in Spring Boot, Next.js, and AI/ML. I specialize in building robust backend systems and dynamic frontends while innovating with AI-driven solutions.
+              I&apos;m Shahid Shakil Mulani, a passionate Java developer with expertise in Spring Boot, Next.js, and AI/ML. I specialize in building robust backend systems and dynamic frontends while innovating with AI-driven solutions.
             </p>
           </motion.div>
         </div>
@@ -183,14 +200,14 @@ const projects = [
           Skills
         </motion.h2>
         <div className="max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-6">
-          {['Java', 'Spring Boot', 'Next.js', 'Machine learning ', 'Mysql', 'mongodb','restfull api','spring security'].map((skill) => (
+          {['Java', 'Spring Boot', 'Next.js', 'Machine Learning', 'MySQL', 'MongoDB', 'RESTful API', 'Spring Security'].map((skill) => (
             <motion.div
               key={skill}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               whileHover={{ scale: 1.05 }}
-              className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-blue-400/30 transition border border-blue-400/20"
+              className="bg-gray-800 p-4 rounded-lg shadow-md hover:border-blue-400/30 transition border border-blue-400/20"
             >
               <p className="text-center font-montserrat uppercase tracking-wider text-lg">{skill}</p>
             </motion.div>
@@ -260,15 +277,18 @@ const projects = [
                 project.size === 'large' ? 'col-span-2 row-span-2' : project.size === 'medium' ? 'col-span-1 row-span-2' : ''
               }`}
             >
-              <img src={project.image} alt={project.title} className="w-full h-48 object-cover rounded-md mb-4" />
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={400}
+                height={192}
+                className="w-full h-48 object-cover rounded-md mb-4"
+              />
               <h3 className="text-xl sm:text-2xl font-semibold font-montserrat uppercase tracking-wider">{project.title}</h3>
               <p className="mt-2 font-montserrat">{project.description}</p>
               <div className="mt-4 flex space-x-4">
                 <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-montserrat tracking-wide">
                   GitHub
-                </a>
-                <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-montserrat tracking-wide">
-                  Demo
                 </a>
               </div>
             </motion.div>
@@ -361,7 +381,7 @@ const projects = [
             </motion.a>
           </div>
           <motion.a
-            href="/shahid resume.pdf"
+            href="/shahid-resume.pdf"
             download
             className="inline-flex items-center px-8 py-4 bg-blue-500 text-white rounded-full font-montserrat uppercase tracking-widest text-lg hover:bg-blue-600 transition shadow-lg neon-glow"
             whileHover={{ scale: 1.1 }}
